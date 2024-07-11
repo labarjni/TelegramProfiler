@@ -49,6 +49,10 @@ def main(page: ft.Page):
 
     def debugLogs_change(e):
         config['Settings']['DebugLogs'] = str(DebugLogs.value)
+        if DebugLogs.value:
+            logging.basicConfig(filename="debug.log", level=logging.DEBUG,
+                                format='%(asctime)s - %(levelname)s - %(message)s')
+
         with open('config.ini', 'w') as configfile:
             config.write(configfile)
 
@@ -68,8 +72,9 @@ def main(page: ft.Page):
         time.sleep(1)
         os.rename(selected_folder, current_tdata_folder)
         subprocess.Popen(telegram_path)
-
-        logging.debug("Telegram Desktop profile changed to %s", selected_folder)
+        if os.path.exists('config.ini'):
+            if config.getboolean("Settings", "DebugLogs"):
+                logging.debug("Telegram Desktop profile changed to %s", selected_folder)
         event.control.update()
 
         update_folder_dropdown()
@@ -135,7 +140,9 @@ def main(page: ft.Page):
                 os.makedirs(new_profile_folder)
                 save_name_to_file(new_profile_folder, f"tdata@{profile_name}")
 
-                logging.debug("Added new Telegram Desktop profile: %s", f"tdata@{profile_name}")
+                if os.path.exists('config.ini'):
+                    if config.getboolean("Settings", "DebugLogs"):
+                        logging.debug("Added new Telegram Desktop profile: %s", f"tdata@{profile_name}")
 
                 update_folder_dropdown()
                 window.destroy()
