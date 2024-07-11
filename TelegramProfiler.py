@@ -60,6 +60,8 @@ def main(page: ft.Page):
 
         subprocess.run(["taskkill", "/f", "/im", "Telegram.exe"])
 
+        time.sleep(1)
+
         selected_folder = f"C:\\Users\\{getpass.getuser()}\\AppData\\Roaming\\Telegram Desktop\\" + event.control.value
         current_tdata_folder = f"C:\\Users\\{getpass.getuser()}\\AppData\\Roaming\\Telegram Desktop\\tdata"
         if os.path.isdir(current_tdata_folder):
