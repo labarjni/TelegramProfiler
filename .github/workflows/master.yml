@@ -30,8 +30,8 @@ jobs:
     - name: Build flet app
       run: |
         flet pack TelegramProfiler.py --icon "favicon.ico" --company-name "labarjni" --product-name "Telegram Profiler" --copyright "Copyright (c) 2024 labarjni"
-    - name: Download a Build Artifact
-        run: ls
+    # - name: Download a Build Artifact
+    - run: ls
       # uses: actions/download-artifact@v4.1.8
       # with:
       #   name: TelegramProfiler
