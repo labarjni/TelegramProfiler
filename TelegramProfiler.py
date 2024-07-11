@@ -179,13 +179,20 @@ def main(page: ft.Page):
         icon=ft.icons.ADD
     )
 
+    value1 = False
+    value2 = False
+    if os.path.exists('config.ini'):
+        value1 = config.getboolean("Settings", "OpenTelegramOnRun")
+        value2 = config.getboolean("Settings", "DebugLogs")
     OpenTelegramOnRun = ft.Checkbox(
         label="Open Telegram Desktop on run",
-        on_change=openTelegramOnRun_change
+        on_change=openTelegramOnRun_change,
+        value=value1
     )
     DebugLogs = ft.Checkbox(
         label="Enable debug logs",
-        on_change=debugLogs_change
+        on_change=debugLogs_change,
+        value=value2
     )
 
     update_folder_dropdown()
