@@ -35,6 +35,12 @@ else:
 def main(page: ft.Page):
     global telegram_path
 
+    current_tdata_folder = f"C:\\Users\\{getpass.getuser()}\\AppData\\Roaming\\Telegram Desktop\\tdata"
+    file_path = current_tdata_folder + '\\name.txt'
+    if not os.path.exists(file_path):
+        with open(file_path, 'w') as file:
+            pass
+
     page.title = "Telegram Profiler"
     page.padding = 50
     page.window.height = 400
