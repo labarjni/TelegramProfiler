@@ -39,7 +39,7 @@ def main(page: ft.Page):
     file_path = current_tdata_folder + '\\name.txt'
     if not os.path.exists(file_path):
         with open(file_path, 'w') as file:
-            pass
+            file.write("tdata@general")
 
     page.title = "Telegram Profiler"
     page.padding = 50
