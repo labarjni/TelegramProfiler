@@ -5,6 +5,3 @@
 
 
 <br><br>
-<h1>Download</h1>
-<br>
-<a href="https://labarjni.com/telegramprofiler">Press to download latest build</a>
