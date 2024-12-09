@@ -34,7 +34,7 @@ jobs:
       run: |
         flet pack TelegramProfiler.py --icon "favicon.ico" --company-name "labarjni" --product-name "Telegram Profiler" --copyright "Copyright (c) 2024 labarjni"
     - name: Upload artifact
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
         name: TelegramProfiler
         path: dist/TelegramProfiler.exe
